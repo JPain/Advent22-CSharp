@@ -9,7 +9,12 @@ public class Day01 : BaseDay
         _input = File.ReadAllText(InputFilePath);
     }
 
-    public override ValueTask<string> Solve_1() => new($"Solution to {ClassPrefix} {CalculateIndex()}, part 1");
+    private string Part1()
+    {
+        return _input;
+    }
+
+    public override ValueTask<string> Solve_1() => new(Part1());
 
     public override ValueTask<string> Solve_2() => new($"Solution to {ClassPrefix} {CalculateIndex()}, part 2");
 }
