@@ -1,4 +1,4 @@
-﻿namespace AdventOfCode;
+namespace AdventOfCode;
 
 public class Day01 : BaseDay
 {
