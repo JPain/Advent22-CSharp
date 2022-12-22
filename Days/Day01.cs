@@ -12,10 +12,10 @@ public class Day01 : BaseDay
     private string Part1()
     {
         int maxCalories = 0;
-        foreach (string block in _input.Split("\r\n\r\n"))
+        foreach (string block in _input.Split($"{Environment.NewLine}{Environment.NewLine}"))
         {
             int blockCalories = 0;
-            foreach (string calorie in block.Split("\r\n"))
+            foreach (string calorie in block.Split($"{Environment.NewLine}"))
             {
                 if (!string.IsNullOrWhiteSpace(calorie)) blockCalories += int.Parse(calorie);
             }
