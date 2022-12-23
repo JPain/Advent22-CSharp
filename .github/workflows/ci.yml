@@ -4,7 +4,7 @@ on:
   push:
 
 jobs:
-  build-and-run:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,8 +16,8 @@ jobs:
         dotnet-version: 7.0.x
 
     - name: Build
-      run: dotnet build -c Release
+      run: dotnet build
 
-    - name: Solve all
-      run: dotnet run -c Release --no-build -- all
-      working-directory: ./
+    - name: Tests
+      run: dotnet test
+
