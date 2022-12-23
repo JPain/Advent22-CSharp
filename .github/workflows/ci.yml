@@ -18,6 +18,7 @@ jobs:
     - name: Build
       run: dotnet build -c Release
 
-    - name: Solve all
-      run: dotnet run -c Release --no-build -- all
+    - name: Tests
+      run: dotnet test --no-build
       working-directory: ./
+
