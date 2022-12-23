@@ -20,5 +20,4 @@ jobs:
 
     - name: Tests
       run: dotnet test --no-build
-      working-directory: ./
 
