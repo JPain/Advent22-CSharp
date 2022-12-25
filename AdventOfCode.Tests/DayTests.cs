@@ -8,6 +8,7 @@ public class Tests
     [InlineData(typeof(Day03), "7875", "2479")]
     [InlineData(typeof(Day04), "471", "888")]
     //[InlineData(typeof(Day05), "FWSHSPJWM", "PWPWHGFZS")]
+    [InlineData(typeof(Day05), "FWSHSPJWM", "There's nothing here")]
     public async Task DayTests(Type type, string sol1, string sol2)
     {
         if (Activator.CreateInstance(type) is BaseProblem instance)
