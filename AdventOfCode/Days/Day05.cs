@@ -9,7 +9,7 @@ public class Day05 : BaseDay
         _input = File.ReadAllText(InputFilePath);
     }
 
-    private string Part1()
+    private string Process(int craneModel)
     {
         var stacks = new Stack<string>[9];
         for (int i = 0; i < 9; i++) stacks[i] = new Stack<string>();
@@ -33,11 +33,32 @@ public class Day05 : BaseDay
                 var numberToMove = int.Parse(command[0]);
                 var fromStackNum = int.Parse(command[1]) - 1;
                 var toStackNum = int.Parse(command[2]) - 1;
-                for (int i = 0; i < numberToMove; i++)
+
+                if (craneModel == 9000)
                 {
-                    var extractedItem = stacks[fromStackNum].Pop();
-                    stacks[toStackNum].Push(extractedItem);
+                    for (int i = 0; i < numberToMove; i++)
+                    {
+                        var extractedItem = stacks[fromStackNum].Pop();
+                        stacks[toStackNum].Push(extractedItem);
+                    }
                 }
+                else if (craneModel == 9001)
+                {
+                    var tempStack = new Stack<string>();
+                    for (int i = 0; i < numberToMove; i++)
+                    {
+                        tempStack.Push(stacks[fromStackNum].Pop());
+                    }
+                    while (tempStack.Count > 0)
+                    {
+                        stacks[toStackNum].Push(tempStack.Pop());
+                    }
+                }
+                else
+                {
+                    return "what?";
+                }
+
             }
             else if (line[1] == '1')
             {
@@ -59,7 +80,7 @@ public class Day05 : BaseDay
         return result;
     }
 
-    public override ValueTask<string> Solve_1() => new(Part1());
+    public override ValueTask<string> Solve_1() => new(Process(9000));
 
-    public override ValueTask<string> Solve_2() => new($"There's nothing here");
+    public override ValueTask<string> Solve_2() => new(Process(9001));
 }
