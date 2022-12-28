@@ -11,8 +11,8 @@ public class Day05 : BaseDay
 
     private string Part1()
     {
-        List<Stack<string>> stacks = new List<Stack<string>>();
-        for (int i = 0; i < 9; i++) stacks.Add(new Stack<string>());
+        var stacks = new Stack<string>[9];
+        for (int i = 0; i < 9; i++) stacks[i] = new Stack<string>();
         foreach (var line in _input.Split(Environment.NewLine))
         {
             if (string.IsNullOrWhiteSpace(line)) continue;
@@ -41,7 +41,13 @@ public class Day05 : BaseDay
             }
             else if (line[1] == '1')
             {
-                //for (int i = 0; i < 9; i++) stacks[i] = 
+                var newStacks = new Stack<string>[9];
+                for (int i = 0; i < 9; i++)
+                {
+                    newStacks[i] = new Stack<string>();
+                    while (stacks[i].Count > 0) newStacks[i].Push(stacks[i].Pop());
+                }
+                stacks = newStacks;
             }
         }
 
