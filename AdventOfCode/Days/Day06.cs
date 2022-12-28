@@ -9,19 +9,16 @@ public class Day06 : BaseDay
         _input = File.ReadAllText(InputFilePath);
     }
 
-    private string Process()
+    private string Process(int marker)
     {
-        for (int i = 4; i < _input.Length; i++)
+        for (int i = marker; i < _input.Length; i++)
         {
-            if (new HashSet<char>(){_input[i-4], _input[i-3],_input[i-2],_input[i-1]}.Count == 4)
-            {
-                return i.ToString();
-            }
+            if (new HashSet<char>(_input.Substring(i-marker,marker)).Count == marker) return i.ToString();
         }
         return "0";
     }
 
-    public override ValueTask<string> Solve_1() => new(Process());
+    public override ValueTask<string> Solve_1() => new(Process(4));
 
-    public override ValueTask<string> Solve_2() => new($"There's nothing here");
+    public override ValueTask<string> Solve_2() => new(Process(14));
 }
