@@ -9,7 +9,7 @@ public class Tests
     [InlineData(typeof(Day03), "7875", "2479")]
     [InlineData(typeof(Day04), "471", "888")]
     [InlineData(typeof(Day05), "FWSHSPJWM", "PWPWHGFZS")]
-    [InlineData(typeof(Day06), "There's nothing here", "There's nothing here")]
+    [InlineData(typeof(Day06), "1140", "There's nothing here")]
     //[InlineData(typeof(Day06), "1140", "3495")]
     public async Task DayTests(Type type, string sol1, string sol2)
     {
