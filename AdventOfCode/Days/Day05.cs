@@ -41,7 +41,7 @@ public class Day05 : BaseDay
             }
             else if (line[1] == '1')
             {
-                for (int i = 0; i < 9; i++) stacks[i] = 
+                //for (int i = 0; i < 9; i++) stacks[i] = 
             }
         }
 
