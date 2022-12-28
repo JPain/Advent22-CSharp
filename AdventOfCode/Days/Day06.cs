@@ -13,11 +13,12 @@ public class Day06 : BaseDay
     {
         for (int i = 4; i < _input.Length; i++)
         {
-            HashSet<string> set = new HashSet<string>() { };
-
-
+            if (new HashSet<char>(){_input[i-4], _input[i-3],_input[i-2],_input[i-1]}.Count == 4)
+            {
+                return i.ToString();
+            }
         }
-        return "There's nothing here";
+        return "0";
     }
 
     public override ValueTask<string> Solve_1() => new(Process());
